@@ -1,0 +1,19 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h1>Pantry Items</h1>
+  </div>
+  <div class="panel-body">
+    <table>
+      <tr>
+        <td>Name</td>
+        <td>Amount</td>
+      </tr>
+      <% @pantry_items.each do |pantry_item| %>
+        <tr>
+        <td><%= pantry_item.name %></td>
+        <td><%= pantry_item.amount %></td>
+      </tr>
+    <% end%>
+    </table>
+  </div>
+</div>
