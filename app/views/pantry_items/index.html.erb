@@ -3,10 +3,11 @@
     <h1>Pantry Items</h1>
   </div>
   <div class="panel-body">
-    <table>
+	<div class="table-responsive">
+    <table class="table table-hover">
       <tr>
-        <td>Name</td>
-        <td>Amount</td>
+        <th>Name</th>
+        <th>Amount</th>
       </tr>
       <% @pantry_items.each do |pantry_item| %>
         <tr>
@@ -16,4 +17,5 @@
     <% end%>
     </table>
   </div>
+</div>
 </div>
