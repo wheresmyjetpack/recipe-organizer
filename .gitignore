@@ -21,3 +21,6 @@
 
 # Ignore secrets
 /config/secrets.yml
+
+#Ignore assets
+/public/assets/*
