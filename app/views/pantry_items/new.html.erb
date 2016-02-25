@@ -1,5 +1,17 @@
 <h1>New Pantry Item</h1>
 <%= form_for :pantry_item, url: pantry_items_path do |f| %>
+  <% if @pantry_item.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@pantry_item.errors.count, "error") %> prevented this pantry item from being saved:
+      </h2>
+      <ul>
+        <% @pantry_item.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
   <p>
     <%= f.label :name %><br />
     <%= f.text_field :name %>
