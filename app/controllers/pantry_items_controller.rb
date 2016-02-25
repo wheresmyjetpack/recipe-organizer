@@ -14,8 +14,11 @@ class PantryItemsController < ApplicationController
   def create
     @pantry_item = PantryItem.new(pantry_item_params)
 
-    @pantry_item.save
-    redirect_to pantry_items_path
+    if @pantry_item.save
+      redirect_to @pantry_item
+    else
+      render 'new'
+    end
   end
 
   private
