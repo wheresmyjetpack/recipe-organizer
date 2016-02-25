@@ -15,7 +15,7 @@ class PantryItemsController < ApplicationController
     @pantry_item = PantryItem.new(pantry_item_params)
 
     @pantry_item.save
-    redirect_to @pantry_item
+    redirect_to pantry_items_path
   end
 
   private
