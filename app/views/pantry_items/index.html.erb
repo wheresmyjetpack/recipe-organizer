@@ -3,19 +3,19 @@
     <h1>Pantry Items</h1>
   </div>
   <div class="panel-body">
-	<div class="table-responsive">
-    <table class="table table-hover">
-      <tr>
-        <th>Name</th>
-        <th>Amount</th>
-      </tr>
-      <% @pantry_items.each do |pantry_item| %>
+    <div class="table-responsive">
+      <table class="table table-hover">
         <tr>
-        <td><%= pantry_item.name %></td>
-        <td><%= pantry_item.amount %></td>
-      </tr>
-    <% end%>
-    </table>
+          <th>Name</th>
+          <th>Amount</th>
+        </tr>
+        <% @pantry_items.each do |pantry_item| %>
+          <tr>
+          <td><%= pantry_item.name %></td>
+          <td><%= pantry_item.amount %></td>
+        </tr>
+      <% end%>
+      </table>
+    </div>
   </div>
-</div>
 </div>
