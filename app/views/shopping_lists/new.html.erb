@@ -1,15 +1,12 @@
 <h1>Create a new shopping list</h1>
-<%= form_for @shopping_list, url: shopping_lists_path do |f| %>
+<%= nested_form_for @shopping_list do |f| %>
+  <%= f.fields_for :ingredients do |ff| %>
+    <%= ff.label :name %>
+    <%= ff.text_field :name %>
+    <%= ff.link_to_remove "Remove Item" %>
+  <% end %>
+  <%= f.link_to_add "Add Item", :ingredients %>
   <p>
-    <% f.label :name %>
-    <% f.text_field :name %>
-  </p>
-  <p>
-    <% f.label :amount %>
-    <% f.text_field :amount %>
-  </p>
-  <p>
-    <% f.submit %>
+  <% f.submit %>
   </p>
 <% end %>
-<%= link_to "Back", shopping_lists_path %>

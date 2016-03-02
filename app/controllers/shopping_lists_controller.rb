@@ -9,6 +9,8 @@ class ShoppingListsController < ApplicationController
 
   def new
     @shopping_list = ShoppingList.new
+    @shopping_list_ingredients = @shopping_list.shopping_list_ingredients.build
+    @ingredient = @shopping_list_ingredients.build_ingredient
   end
 
   def create
@@ -17,6 +19,6 @@ class ShoppingListsController < ApplicationController
 
   private
   def shopping_list_params
-    params.require(:shopping_list).permit(:ingredient, :amount)
+    params.require(:shopping_list).permit(:id, shopping_list_ingredients_attributes: [:id, ingredient: [:id, :name, :amount]])
   end
 end
