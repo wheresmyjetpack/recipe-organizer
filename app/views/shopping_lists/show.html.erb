@@ -1,0 +1,14 @@
+<table class="table">
+  <tr>
+    <th>Ingredient</th>
+    <th>Amount</th>
+  </tr>
+  <% @shopping_list.ingredients.each do |ingredient| %>
+  <tr>
+    <td><%= ingredient.name %></td>
+    <td></td>
+  </tr>
+  <% end %>
+</table>
+      
+<%= link_to 'Back to Shopping Lists', shopping_lists_path %>

@@ -1,8 +1,9 @@
 <h1>All shopping lists</h1>
 <table class="table">
+  <% @shopping_lists.each do |list| %>
   <tr>
-  <% @shopping_lists.each do |l| %>
-    <td></td>
+    <td><%= link_to list.created_at, list %></td>
+  </tr>
   <% end %>
-</tr>
 </table>
+<%= link_to 'Create a shopping list', new_shopping_list_path %>

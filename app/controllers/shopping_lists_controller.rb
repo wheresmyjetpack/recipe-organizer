@@ -15,10 +15,17 @@ class ShoppingListsController < ApplicationController
 
   def create
     @shopping_list = ShoppingList.new(shopping_list_params)
+    #@ingredients = @shopping_list.ingredients.build(params[:ingredients])
+
+    if @shopping_list.save
+      redirect_to @shopping_list
+    else
+      render 'new'
+    end
   end
 
   private
   def shopping_list_params
-    params.require(:shopping_list).permit(:id, shopping_list_ingredients_attributes: [:id, ingredient: [:id, :name, :amount]])
+    params.require(:shopping_list).permit(:id, ingredients_attributes: [:id, :name, :_destroy])
   end
 end
