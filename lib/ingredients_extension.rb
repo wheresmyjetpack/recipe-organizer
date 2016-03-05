@@ -13,3 +13,4 @@ module IngredientsExtension
 end
 
 ShoppingList.send(:include, IngredientsExtension)
+Recipe.send(:include, IngredientsExtension)
