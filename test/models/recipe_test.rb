@@ -15,8 +15,7 @@ class RecipeTest < ActiveSupport::TestCase
 
   test "ingredients with name of existing ingredient should not save" do
     # setup
-    ingredient1 = Ingredient.new(name: 'Milk')
-    ingredient1.save
+    ingredient1 = Ingredient.create(name: 'Milk')
     
     assert_no_difference 'Ingredient.count', 'Ingredient should not save' do
       recipe = Recipe.new
