@@ -7,4 +7,6 @@ class Recipe < ActiveRecord::Base
 
   validates :name, presence: true
   validates :directions, presence: true
+
+  before_save :find_or_create_ingredients
 end
