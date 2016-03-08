@@ -12,7 +12,8 @@ class PantryItemsController < ApplicationController
   end
 
   def create
-    @pantry_item = PantryItem.new(pantry_item_params)
+    @pantry_item = PantryItem.new(pantry_item_params.except(:ingredient))
+    @pantry_item.ingredient = Ingredient.find_or_create_by(name: pantry_item_params[:ingredient][:name])
 
     if @pantry_item.save
       redirect_to @pantry_item
@@ -23,6 +24,6 @@ class PantryItemsController < ApplicationController
 
   private
   def pantry_item_params
-    params.require(:pantry_item).permit(:name, :amount)
+    params.require(:pantry_item).permit(:id, :amount, ingredient: [:id, :name])
   end
 end

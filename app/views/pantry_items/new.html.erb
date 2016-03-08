@@ -1,5 +1,5 @@
 <h1>New Pantry Item</h1>
-<%= form_for :pantry_item, url: pantry_items_path do |f| %>
+<%= nested_form_for :pantry_item, url: pantry_items_path do |f| %>
   <% if @pantry_item.errors.any? %>
     <div id="error_explanation">
       <h2>
@@ -13,12 +13,14 @@
     </div>
   <% end %>
   <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+  <%= f.fields_for :ingredient do |ff| %>
+    <%= ff.label :name %><br />
+    <%= ff.text_field :name %>
+  <% end %>
   </p>
   <p>
-    <%= f.label :amount %><br />
-    <%= f.text_field :amount %>
+  <%= f.label :amount %><br />
+  <%= f.text_field :amount %>
   </p>
   <p>
     <%= f.submit %>
