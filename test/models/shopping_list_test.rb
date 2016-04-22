@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class ShoppingListTest < ActiveSupport::TestCase
-  test "ingredients with name of existing ingredient should not save" do
+  test "ingredients with duplicate names should not save" do
     # setup
     ingredient1 = Ingredient.create(name: 'Milk')
     
