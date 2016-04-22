@@ -1,7 +1,8 @@
 require 'test_helper'
 
 class PantryItemTest < ActiveSupport::TestCase
-  test "ingredients with name of existing ingredient should not save" do
-    # setup
+
+  def setup
+    @pantry_item = PantryItem.new(amount: "1 gal")
   end
 end

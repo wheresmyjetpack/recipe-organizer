@@ -5,5 +5,7 @@ class Ingredient < ActiveRecord::Base
 
   accepts_nested_attributes_for :pantry_items
 
-  validates :name, presence: true
+  validates :name, presence: true,
+                   length: { maximum: 80 },
+                   uniqueness: true
 end

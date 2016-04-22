@@ -13,6 +13,7 @@ class PantryItemsController < ApplicationController
 
   def create
     @pantry_item = PantryItem.new(pantry_item_params.except(:ingredient))
+    # TODO Write test for unique ingredient names
     @pantry_item.ingredient = Ingredient.find_or_create_by(name: pantry_item_params[:ingredient][:name])
 
     if @pantry_item.save
