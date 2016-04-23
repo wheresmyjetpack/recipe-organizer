@@ -9,7 +9,7 @@ class UserTest < ActiveSupport::TestCase
     assert @user.valid?
   end
 
-  # User.name tests
+  #### name tests #### 
 
   test "name should be present" do
     @user.name = "         "
@@ -26,7 +26,7 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
 
-  # User.email tests
+  #### email tests ####
 
   test "email should not be too long" do
     @user.email = "a" * 244 + "@example.com"
@@ -43,7 +43,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "email validation should reject invalid addresses" do
-    invalid_addresses = %w[user@example,com user_at_foo.org user@example. user@example..com]
+    invalid_addresses = %w[user@example,com user_at_foo.org user@example. user@example.domain..com user@example..com ]
 
     invalid_addresses.each do |ia|
       @user.email = ia
@@ -62,5 +62,12 @@ class UserTest < ActiveSupport::TestCase
     @user.email = "uSeR@EXamPlE.com"
     @user.save
     assert @user.email == "user@example.com"
+  end
+
+  #### password tests ####
+
+  test "password should not be too short" do
+    @user.password = @user.password_confirmation = "a" * 5
+    assert_not @user.valid?
   end
 end
