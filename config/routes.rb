@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
   resources :pantry_items
   resources :shopping_lists
+  resources :recipes
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'
