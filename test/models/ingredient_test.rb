@@ -16,10 +16,8 @@ class IngredientTest < ActiveSupport::TestCase
   end
 
   test "ingredient name should be unique" do
-    # test stuff
-    ingredient = Ingredient.create(name: "Milk")
-    duplicate_ingredient = Ingredient.new(name: "Milk")
-
-    assert_not duplicate_ingredient.save
+    duplicate_ingredient = @ingredient.dup
+    @ingredient.save
+    assert_not duplicate_ingredient.valid?
   end
 end
