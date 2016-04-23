@@ -9,6 +9,8 @@ class UserTest < ActiveSupport::TestCase
     assert @user.valid?
   end
 
+  # User.name tests
+
   test "name should be present" do
     @user.name = "         "
     assert_not @user.valid?
@@ -23,6 +25,8 @@ class UserTest < ActiveSupport::TestCase
     @user.name = "a" * 51
     assert_not @user.valid?
   end
+
+  # User.email tests
 
   test "email should not be too long" do
     @user.email = "a" * 244 + "@example.com"
@@ -52,5 +56,11 @@ class UserTest < ActiveSupport::TestCase
     duplicate_user.email = @user.email.upcase
     @user.save
     assert_not duplicate_user.valid?
+  end
+
+  test "emails addresses should be lowercase" do
+    @user.email = "uSeR@EXamPlE.com"
+    @user.save
+    assert @user.email == "user@example.com"
   end
 end
