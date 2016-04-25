@@ -14,8 +14,13 @@ class ShoppingListsController < ApplicationController
   end
 
   def create
+    ingredients = []
     @shopping_list = ShoppingList.new(shopping_list_params)
-    #@ingredients = @shopping_list.ingredients.build(params[:ingredients])
+
+    @shopping_list.ingredients.each do |i|
+      ingredients << Ingredient.find_or_create_by(name: i.name)
+      @shopping_list.ingredients.replace(ingredients)
+    end
 
     if @shopping_list.save
       redirect_to @shopping_list

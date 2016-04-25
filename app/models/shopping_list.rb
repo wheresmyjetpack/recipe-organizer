@@ -5,6 +5,6 @@ class ShoppingList < ActiveRecord::Base
   accepts_nested_attributes_for :shopping_list_ingredients, allow_destroy: :true
   accepts_nested_attributes_for :ingredients
 
-  before_save :find_or_create_ingredients
+  #before_save :find_or_create_ingredients
 
 end
