@@ -22,6 +22,11 @@ ActiveRecord::Schema.define(version: 20160423044027) do
     t.string   "name"
   end
 
+  create_table "ingredients_shopping_lists", id: false, force: :cascade do |t|
+    t.integer "shopping_list_id", null: false
+    t.integer "ingredient_id",    null: false
+  end
+
   create_table "pantry_items", force: :cascade do |t|
     t.string   "name"
     t.string   "amount"

@@ -25,7 +25,8 @@
       <ul class="nav navbar-nav">
         <li class="<%= is_active?(pantry_items_path) %>"><%= link_to "Pantry", pantry_items_path %></li>
         <li class="<%= is_active?(new_shopping_list_path) %>"><%= link_to 'Shopping List', new_shopping_list_path %></li>
-      <li><a href="#">Recipes</a></li>
+        <li><a href="#">Recipes</a></li>
+        <li class="<%= is_active?(new_user_path) %>"><%= link_to 'Sign Up', new_user_path %></li>
       </ul>
       <form class="navbar-form navbar-right" role="search">
         <div class="form-group">
