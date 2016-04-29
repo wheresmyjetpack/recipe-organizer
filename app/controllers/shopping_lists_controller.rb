@@ -19,8 +19,9 @@ class ShoppingListsController < ApplicationController
 
     @shopping_list.ingredients.each do |i|
       ingredients << Ingredient.find_or_create_by(name: i.name)
-      @shopping_list.ingredients.replace(ingredients)
     end
+
+    @shopping_list.ingredients.replace(ingredients)
 
     if @shopping_list.save
       redirect_to @shopping_list
